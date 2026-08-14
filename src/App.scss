@@ -1,0 +1,155 @@
+:root {
+  --ink: #3d3a35;
+  --paper: #f3f2ec;
+  --accent: #c74c51;
+}
+
+.storybook-shell {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.story-canvas {
+  position: absolute !important;
+  inset: 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+.story-canvas:active { cursor: grabbing; }
+
+.story-brand {
+  position: fixed;
+  z-index: 5;
+  top: 18px;
+  left: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(57, 55, 51, 0.74);
+  font: 15px "STKaiti", "KaiTi", cursive;
+  pointer-events: none;
+  transform: rotate(-1.2deg);
+}
+
+.story-brand__seal {
+  display: grid;
+  width: 30px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 2px solid rgba(199, 76, 81, 0.7);
+  border-radius: 46% 54% 48% 52%;
+  color: var(--accent);
+  font-size: 17px;
+  transform: rotate(-7deg);
+}
+
+.story-hint {
+  position: fixed;
+  z-index: 5;
+  right: 20px;
+  bottom: 15px;
+  margin: 0;
+  color: rgba(61, 58, 53, 0.55);
+  font: 11px "STKaiti", "KaiTi", cursive;
+  pointer-events: none;
+}
+
+.story-progress {
+  position: fixed;
+  z-index: 5;
+  inset: auto 0 0;
+  height: 3px;
+  background: rgba(61, 58, 53, 0.08);
+  pointer-events: none;
+}
+
+.story-progress div {
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  background: rgba(199, 76, 81, 0.76);
+}
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, transparent 0 14.8%, rgba(211, 78, 75, 0.34) 14.9% 15.1%, transparent 15.2%),
+    repeating-linear-gradient(0deg, #f2f1ea 0 42px, rgba(92, 168, 200, 0.27) 43px 45px);
+  transition: opacity 600ms ease, visibility 600ms ease;
+}
+
+.intro-screen.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.intro-screen__content {
+  width: min(620px, calc(100vw - 42px));
+  text-align: center;
+  transform: rotate(-0.6deg);
+}
+
+.intro-screen__kicker {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font: 700 12px "Comic Sans MS", cursive;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.intro-screen h1 {
+  margin: 0;
+  font: 700 clamp(42px, 8vw, 78px)/1 "STKaiti", "KaiTi", cursive;
+}
+
+.intro-screen__content > p:not(.intro-screen__kicker) {
+  margin: 18px 0 24px;
+  font: 16px/1.7 "STKaiti", "KaiTi", serif;
+}
+
+.intro-screen__loading {
+  width: min(260px, 70vw);
+  height: 3px;
+  margin: 0 auto 20px;
+  background: rgba(61, 58, 53, 0.15);
+}
+
+.intro-screen__loading span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  background: var(--accent);
+}
+
+.intro-screen button {
+  border: 2px solid rgba(61, 58, 53, 0.72);
+  border-radius: 47% 53% 48% 52%;
+  padding: 11px 23px;
+  color: var(--ink);
+  background: rgba(247, 245, 236, 0.78);
+  box-shadow: 3px 5px 0 rgba(63, 57, 46, 0.12);
+  font: 700 16px "STKaiti", "KaiTi", cursive;
+  cursor: pointer;
+  transform: rotate(1deg);
+}
+
+.intro-screen button:disabled { cursor: wait; opacity: 0.55; }
+
+.intro-screen small {
+  display: block;
+  margin-top: 17px;
+  color: rgba(61, 58, 53, 0.62);
+  font: 12px "STKaiti", "KaiTi", cursive;
+}
+
+@media (max-width: 700px) {
+  .story-hint { display: none; }
+}

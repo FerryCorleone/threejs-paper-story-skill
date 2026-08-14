@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Story Builder"
+  short_description: "Build custom Three.js paper-cut story websites"
+  default_prompt: "Use $paper-story-builder to turn my story into a validated Three.js paper-cut website."

@@ -1,0 +1,21 @@
+{
+  "projectTitle": "外婆的夏日花园",
+  "audience": "family-only",
+  "visualAnchor": "childlike colored-pencil paper cutouts on ruled notebook paper",
+  "protagonist": {
+    "name": "小满",
+    "costumes": ["arrival", "gardening", "celebration"]
+  },
+  "chapters": [
+    {
+      "title": "推开木门",
+      "beat": "小满第一次走进外婆的花园。",
+      "cutouts": ["wooden gate", "grandmother", "sunflowers", "cat"],
+      "motionIdeas": ["gate-open", "flower-sway", "cat-tail"]
+    }
+  ],
+  "assetRightsNotes": [
+    "Confirm consent before publishing family portraits.",
+    "Record the source and commercial-use terms for generated images."
+  ]
+}

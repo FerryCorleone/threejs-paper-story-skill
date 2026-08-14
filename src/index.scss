@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  background: #111a28;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior: none;
+  font-family: "Plus Jakarta Sans", "PingFang SC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid #f3dfb6;
+  outline-offset: 3px;
+}
