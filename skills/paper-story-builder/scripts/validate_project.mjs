@@ -10,6 +10,8 @@ const requiredPaths = [
   "src/story/story.config.js",
   "src/Experience/models/PaperWorld.jsx",
   "skills/paper-story-builder/SKILL.md",
+  "skills/paper-story-builder/references/production-playbook.md",
+  "skills/paper-story-builder/references/visual-delivery-checklist.md",
 ];
 const ignoredDirectories = new Set([".git", "dist", "node_modules", "tmp"]);
 const forbiddenExtensions = new Set([

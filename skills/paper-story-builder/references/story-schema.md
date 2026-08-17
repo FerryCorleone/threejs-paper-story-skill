@@ -15,6 +15,7 @@ The repository starts with `meta.templateState: "blank"`. Blank mode intentional
 | `stage` | Procedural paper geometry and palette | Keep geometry numeric and page arrays non-empty |
 | `experience` | FOV, scroll speed, easing and sound | Avoid story-specific data here |
 | `chapters` | Ordered story pages | Use 3–12; 5–8 is the default |
+| `interludes` | Persistent contextual scenery between chapter centers | Use location-appropriate environment layers; avoid progress-window pop-ins |
 | `characters` | Optional story-specific character definitions | Add only when the story needs them |
 
 ## Chapter fields
@@ -36,6 +37,34 @@ A typical cutout uses `src`, `position: [x, y, z]`, positive `height`, and a `mo
 
 Motion names are project-defined. Keep the registry in the story-specific renderer, document each reusable motion, and reject config values that are not present in that registry. Do not carry motions, characters, or props from an earlier story into a new one merely as placeholders.
 
+## Continuity and handoff plan
+
+The continuity plan can live beside the config rather than in runtime data, but it is required for authored stories. For every adjacent chapter pair record:
+
+| Field | Question |
+| --- | --- |
+| protagonist | Is this visibly the same traveler or recurring subject? |
+| incoming/outgoing state | Which costume, pose, vehicle, and scale exist on each side? |
+| swap point | Where does the old state end and the new state begin? |
+| scene lead | When are the next landmark, floor, atmosphere, and support layers fully visible? |
+| mechanism | What physically carries the subject through the transition? |
+| trigger | What action fires at the focal point, and can it replay in reverse? |
+| connector | Which contextual elements fill the travel space without stealing the hero beat? |
+
+Treat the final-to-first loop as another handoff row.
+
+## Optional audio
+
+`experience.audio` may contain:
+
+| Field | Required | Rule |
+| --- | --- | --- |
+| `src` | yes | Runtime URL below `/story-assets/` |
+| `title` | yes | Accessible human-readable track title |
+| `volume` | yes | Number from `0` through `1` |
+
+Audio must not be the only way to understand the story. Browser autoplay restrictions mean playback begins after the entry gesture or explicit music-button gesture.
+
 ## Optional character rig
 
 Add a rig only when the selected art direction needs a layered walking or gesturing paper character. Prefer a neutral path such as `src/story/character-rig.json`; keep the character renderer in a story-specific module rather than in the base paper world.
@@ -44,10 +73,12 @@ A layered rig may contain a body plus independent feet and arms. Every runtime U
 
 ## Validation gates
 
-1. Every configured URL maps to a real file below `public/story-assets/`.
+1. Every configured or source-literal runtime URL maps to a real file below `public/story-assets/`; do not validate config while missing CSS or renderer assets.
 2. Thresholds and stage positions strictly increase.
 3. Every motion name exists in the current story renderer.
 4. Completed chapters have titles and narration.
 5. `npm run check:no-binary-3d` passes.
 6. `npm run lint` and `npm run build` pass.
 7. Every page, interaction, and the loop are inspected in a browser.
+8. Every applicable item in `visual-delivery-checklist.md` is inspected and recorded.
+9. Every chapter boundary has a continuity handoff plan, including the loop.
