@@ -13,6 +13,7 @@ dist-ssr
 *.local
 .venv
 tmp
+.private-inputs/
 
 # Editor directories and files
 .vscode/*
